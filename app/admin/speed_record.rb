@@ -1,4 +1,5 @@
 ActiveAdmin.register SpeedRecord do
+  permit_params :ip_address, :download_speed, :upload_speed, :latency, :jitter, :hostname
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
