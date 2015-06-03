@@ -1,41 +1,46 @@
-<%= form_for(@speed_record) do |f| %>
-  <% if @speed_record.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@speed_record.errors.count, "error") %> prohibited this speed_record from being saved:</h2>
-
-      <ul>
-      <% @speed_record.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @speed_record, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :ip_address, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :ip_address, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :download_speed, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :download_speed, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :upload_speed, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :upload_speed, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :latency, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :latency, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :jitter, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :jitter, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :hostname, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :hostname, :class => 'text-field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :ip_address %><br>
-    <%= f.text_field :ip_address %>
-  </div>
-  <div class="field">
-    <%= f.label :download_speed %><br>
-    <%= f.text_field :download_speed %>
-  </div>
-  <div class="field">
-    <%= f.label :upload_speed %><br>
-    <%= f.text_field :upload_speed %>
-  </div>
-  <div class="field">
-    <%= f.label :latency %><br>
-    <%= f.number_field :latency %>
-  </div>
-  <div class="field">
-    <%= f.label :jitter %><br>
-    <%= f.number_field :jitter %>
-  </div>
-  <div class="field">
-    <%= f.label :hostname %><br>
-    <%= f.text_field :hostname %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  speed_records_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

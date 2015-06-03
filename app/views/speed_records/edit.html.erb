@@ -1,6 +1,5 @@
-<h1>Editing speed_record</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @speed_record %> |
-<%= link_to 'Back', speed_records_path %>
+<%- model_class = SpeedRecord -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => SpeedRecord %></h1>
+</div>
+<%= render :partial => 'form' %>

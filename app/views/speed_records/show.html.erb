@@ -1,34 +1,34 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = SpeedRecord -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => SpeedRecord %></h1>
+</div>
 
-<p>
-  <strong>Ip address:</strong>
-  <%= @speed_record.ip_address %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:ip_address) %></dt>
+      <dd><pre class="prettyprint"><%= @speed_record.ip_address %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:download_speed) %></dt>
+      <dd><pre class="prettyprint"><%= @speed_record.download_speed %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:upload_speed) %></dt>
+      <dd><pre class="prettyprint"><%= @speed_record.upload_speed %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:latency) %></dt>
+      <dd><pre class="prettyprint"><%= @speed_record.latency %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:jitter) %></dt>
+      <dd><pre class="prettyprint"><%= @speed_record.jitter %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:hostname) %></dt>
+      <dd><pre class="prettyprint"><%= @speed_record.hostname %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Download speed:</strong>
-  <%= @speed_record.download_speed %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              speed_records_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_speed_record_path(@speed_record), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              speed_record_path(@speed_record),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Upload speed:</strong>
-  <%= @speed_record.upload_speed %>
-</p>
-
-<p>
-  <strong>Latency:</strong>
-  <%= @speed_record.latency %>
-</p>
-
-<p>
-  <strong>Jitter:</strong>
-  <%= @speed_record.jitter %>
-</p>
-
-<p>
-  <strong>Hostname:</strong>
-  <%= @speed_record.hostname %>
-</p>
-
-<%= link_to 'Edit', edit_speed_record_path(@speed_record) %> |
-<%= link_to 'Back', speed_records_path %>

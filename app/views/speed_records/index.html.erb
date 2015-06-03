@@ -1,35 +1,46 @@
-<h1>Listing speed_records</h1>
-
-<table>
+<%- model_class = SpeedRecord -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => SpeedRecord %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Ip address</th>
-      <th>Download speed</th>
-      <th>Upload speed</th>
-      <th>Latency</th>
-      <th>Jitter</th>
-      <th>Hostname</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:ip_address) %></th>
+      <th><%= model_class.human_attribute_name(:download_speed) %></th>
+      <th><%= model_class.human_attribute_name(:upload_speed) %></th>
+      <th><%= model_class.human_attribute_name(:latency) %></th>
+      <th><%= model_class.human_attribute_name(:jitter) %></th>
+      <th><%= model_class.human_attribute_name(:hostname) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @speed_records.each do |speed_record| %>
       <tr>
+        <td><%= speed_record.id %></td>
         <td><%= speed_record.ip_address %></td>
         <td><%= speed_record.download_speed %></td>
         <td><%= speed_record.upload_speed %></td>
         <td><%= speed_record.latency %></td>
         <td><%= speed_record.jitter %></td>
         <td><%= speed_record.hostname %></td>
-        <td><%= link_to 'Show', speed_record %></td>
-        <td><%= link_to 'Edit', edit_speed_record_path(speed_record) %></td>
-        <td><%= link_to 'Destroy', speed_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l speed_record.created_at, format: :long %></td>
+        <td>
+          <%= link_to speed_record_path(speed_record), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to speed_record_path(speed_record), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Speed record', new_speed_record_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_speed_record_path,
+            :class => 'btn btn-primary' %>
