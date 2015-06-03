@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ip_address: MyString
+  download_speed: 1.5
+  upload_speed: 1.5
+  latency: 1
+  jitter: 1
+  hostname: MyString
+
+two:
+  ip_address: MyString
+  download_speed: 1.5
+  upload_speed: 1.5
+  latency: 1
+  jitter: 1
+  hostname: MyString
