@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ip address:</strong>
+  <%= @speed_record.ip_address %>
+</p>
+
+<p>
+  <strong>Download speed:</strong>
+  <%= @speed_record.download_speed %>
+</p>
+
+<p>
+  <strong>Upload speed:</strong>
+  <%= @speed_record.upload_speed %>
+</p>
+
+<p>
+  <strong>Latency:</strong>
+  <%= @speed_record.latency %>
+</p>
+
+<p>
+  <strong>Jitter:</strong>
+  <%= @speed_record.jitter %>
+</p>
+
+<p>
+  <strong>Hostname:</strong>
+  <%= @speed_record.hostname %>
+</p>
+
+<%= link_to 'Edit', edit_speed_record_path(@speed_record) %> |
+<%= link_to 'Back', speed_records_path %>

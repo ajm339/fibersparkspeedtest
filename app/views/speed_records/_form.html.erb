@@ -1,0 +1,41 @@
+<%= form_for(@speed_record) do |f| %>
+  <% if @speed_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@speed_record.errors.count, "error") %> prohibited this speed_record from being saved:</h2>
+
+      <ul>
+      <% @speed_record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ip_address %><br>
+    <%= f.text_field :ip_address %>
+  </div>
+  <div class="field">
+    <%= f.label :download_speed %><br>
+    <%= f.text_field :download_speed %>
+  </div>
+  <div class="field">
+    <%= f.label :upload_speed %><br>
+    <%= f.text_field :upload_speed %>
+  </div>
+  <div class="field">
+    <%= f.label :latency %><br>
+    <%= f.number_field :latency %>
+  </div>
+  <div class="field">
+    <%= f.label :jitter %><br>
+    <%= f.number_field :jitter %>
+  </div>
+  <div class="field">
+    <%= f.label :hostname %><br>
+    <%= f.text_field :hostname %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
